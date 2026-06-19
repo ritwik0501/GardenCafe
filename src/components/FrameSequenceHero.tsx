@@ -43,19 +43,21 @@ export default function FrameSequenceHero() {
       .set(imagesRef.current, { autoAlpha: 0, y: -150 });
 
     items.forEach((_, i) => {
-      const chars = titlesRef.current[i]?.querySelectorAll(".char");
-      const desc = titlesRef.current[i]?.querySelector(".desc");
-      const btn = titlesRef.current[i]?.querySelector(".action-btn");
+      const titleEl = titlesRef.current[i];
+      if (!titleEl) return;
+      const chars = titleEl.querySelectorAll(".char");
+      const desc = titleEl.querySelector(".desc");
+      const btn = titleEl.querySelector(".action-btn");
 
       // 1. Initial State: Title hidden, characters moved, desc moved, Image moved
-      tl.set(titlesRef.current[i], { autoAlpha: 0 }, "start" + i)
+      tl.set(titleEl, { autoAlpha: 0 }, "start" + i)
         .set(chars, { x: -80, y: 30, autoAlpha: 0 }, "start" + i)
         .set(desc, { y: 20, autoAlpha: 0 }, "start" + i)
         .set(btn, { y: 20, autoAlpha: 0 }, "start" + i)
         .set(imagesRef.current[i], { y: -150, autoAlpha: 0 }, "start" + i);
 
       // 2. Animate IN (staggered sync)
-      tl.set(titlesRef.current[i], { autoAlpha: 1 }, "in" + i) // Reveal wrapper
+      tl.set(titleEl, { autoAlpha: 1 }, "in" + i) // Reveal wrapper
         .to(chars, { x: 0, y: 0, autoAlpha: 1, duration: 0.8, ease: "back.out(1.2)", stagger: 0.03 }, "in" + i)
         .to(desc, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" }, "in" + i + "+=0.3") // desc enters slightly after title
         .to(btn, { y: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out" }, "in" + i + "+=0.4") // btn enters slightly after desc
@@ -69,7 +71,7 @@ export default function FrameSequenceHero() {
         .to(desc, { y: -20, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, "out" + i + "+=0.1")
         .to(btn, { y: -20, autoAlpha: 0, duration: 0.5, ease: "power3.in" }, "out" + i + "+=0.2")
         .to(imagesRef.current[i], { y: 150, autoAlpha: 0, duration: 0.8, ease: "power3.in" }, "out" + i)
-        .set(titlesRef.current[i], { autoAlpha: 0 }); // Hide wrapper after out
+        .set(titleEl, { autoAlpha: 0 }); // Hide wrapper after out
     });
   }, { scope: containerRef });
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import FrameSequenceHero from "./components/FrameSequenceHero";
 import SplashScreen from "./components/SplashScreen";
 import { useGSAP } from "@gsap/react";

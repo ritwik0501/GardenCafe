@@ -23,7 +23,7 @@ const cardVariants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
   },
 };
@@ -35,7 +35,7 @@ const textVariants = {
     y: 0,
     transition: {
       duration: 0.3,
-      ease: "easeOut",
+      ease: "easeOut" as const,
     },
   },
 };
@@ -66,7 +66,7 @@ const PropertyCard = React.forwardRef<HTMLDivElement, PropertyCardProps>(
         initial="hidden"
         animate="visible"
         whileHover={{ scale: 1.03, y: -5 }}
-        {...props}
+        {...(props as any)}
       >
         {/* Image Section */}
         <div className="overflow-hidden">

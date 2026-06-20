@@ -6,15 +6,12 @@ import "swiper/css/effect-coverflow"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 
-import { SparklesIcon } from "lucide-react"
 import {
   Autoplay,
   EffectCoverflow,
   Navigation,
   Pagination,
 } from "swiper/modules"
-
-import { Badge } from "@/components/ui/badge"
 
 export interface CarouselImage {
   src: string

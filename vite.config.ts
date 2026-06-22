@@ -16,4 +16,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    allowedHosts: ['ito7mp-ip-47-30-241-192.tunnelmole.net'],
+  },
 })

@@ -35,8 +35,8 @@ const MenuCard = React.forwardRef<HTMLDivElement, MenuCardProps>(
           className
         )}
         style={{
-          backgroundColor: "var(--background)",
-          color: "var(--foreground)",
+          backgroundColor: "var(--foreground)",
+          color: "var(--background)",
         }}
         {...props}
       >
@@ -55,15 +55,15 @@ const MenuCard = React.forwardRef<HTMLDivElement, MenuCardProps>(
           {/* Title */}
           <h3
             className="text-lg font-bold tracking-tight"
-            style={{ color: "var(--foreground)" }}
+            style={{ color: "var(--background)" }}
           >
             {name}
           </h3>
 
           {/* Description */}
           <p
-            className="text-sm leading-relaxed opacity-70 line-clamp-2"
-            style={{ color: "var(--foreground)" }}
+            className="text-sm leading-relaxed line-clamp-2"
+            style={{ color: "var(--background)" }}
           >
             {description}
           </p>
@@ -72,7 +72,7 @@ const MenuCard = React.forwardRef<HTMLDivElement, MenuCardProps>(
           <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
             <span
               className="text-xl font-bold"
-              style={{ color: "var(--foreground)" }}
+              style={{ color: "var(--background)" }}
             >
               ₹{price}
             </span>
@@ -81,15 +81,9 @@ const MenuCard = React.forwardRef<HTMLDivElement, MenuCardProps>(
               <Star className="h-4 w-4 fill-yellow-400 text-yellow-500" />
               <span
                 className="text-sm font-semibold"
-                style={{ color: "var(--foreground)" }}
+                style={{ color: "var(--background)" }}
               >
                 {rating}
-              </span>
-              <span
-                className="text-xs opacity-60"
-                style={{ color: "var(--foreground)" }}
-              >
-                ({reviews.toLocaleString()})
               </span>
             </div>
           </div>

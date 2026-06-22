@@ -8,9 +8,10 @@ gsap.registerPlugin(ScrollTrigger);
 interface SectionTitleProps {
   title: string;
   subtitle?: string;
+  color?: string;
 }
 
-export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
+export default function SectionTitle({ title, subtitle, color = "var(--background)" }: SectionTitleProps) {
   const titleRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -64,19 +65,19 @@ export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
       <div className="flex items-center gap-3 md:gap-5 w-full max-w-2xl">
         <span
           className="decor-left flex-1 h-[2px] rounded-full origin-right"
-          style={{ background: "linear-gradient(to right, transparent, var(--background))" }}
+          style={{ background: `linear-gradient(to right, transparent, ${color})` }}
         />
         <h2
           className="section-heading text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight whitespace-nowrap px-4 py-2 rounded-full"
           style={{
-            color: "var(--background)",
+            color: color,
           }}
         >
           {title}
         </h2>
         <span
           className="decor-right flex-1 h-[2px] rounded-full origin-left"
-          style={{ background: "linear-gradient(to left, transparent, var(--background))" }}
+          style={{ background: `linear-gradient(to left, transparent, ${color})` }}
         />
       </div>
 

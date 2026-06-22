@@ -3,6 +3,9 @@ import FrameSequenceHero from "./components/FrameSequenceHero";
 import SplashScreen from "./components/SplashScreen";
 import SpecialtySection from "./components/SpecialtySection";
 import MenuSection from "./components/MenuSection";
+import TestimonialSection from "./components/testimonials/TestimonialSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -25,10 +28,13 @@ function App() {
     const centerX = window.innerWidth / 2 - 50 - 16;
     const centerY = window.innerHeight / 2 - 50 - 16; 
 
+    const isMobile = window.innerWidth < 768;
+    const logoScale = isMobile ? 4 : 8;
+
     tl.set(logoRef.current, {
       x: centerX,
       y: centerY,
-      scale: 5.5,
+      scale: logoScale,
       rotation: 0,
       autoAlpha: 0,
     });
@@ -79,24 +85,34 @@ function App() {
         ref={logoRef}
         src="/logo/GardenCafe.png"
         alt="CupShake Logo"
+        className="mb-10 lg:mb-0"
         style={{
           position: "fixed",
           top: "16px",
           left: "16px",
-          width: "100px",
+          width: "120px",
           height: "auto",
           zIndex: 9999,
           pointerEvents: "none",
           rotate: "-1deg"
         }}
       />
-      {!splashComplete && <SplashScreen />}
+      { <SplashScreen />}
       <FrameSequenceHero />
       {/* Speciallity */}
       <SpecialtySection />
 
       {/* Menu */}
       <MenuSection />
+
+      {/* Testimonials */}
+      <TestimonialSection />
+
+      {/* contact */}
+      <ContactSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
